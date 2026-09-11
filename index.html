@@ -1,605 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Runner Adventure | Gaming World</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google AdSense Verification -->
-    <meta name="google-adsense-account" content="ca-pub-3037315640748095">
+<title>Runner Adventure | Gaming World</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="stylesheet" href="style.css">
 
-        html {
-            scroll-behavior: smooth;
-        }
+<!-- Google AdSense -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3037315640748095"
+crossorigin="anonymous"></script>
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #080d1c;
-            color: white;
-        }
-
-        /* NAVBAR */
-        header {
-            width: 100%;
-            padding: 18px 7%;
-            background: rgba(5, 9, 22, 0.95);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #26304f;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #ffd43b;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #ffd43b;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 680px;
-            padding: 80px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background:
-                linear-gradient(
-                    rgba(4, 8, 25, 0.45),
-                    rgba(4, 8, 25, 0.95)
-                ),
-                radial-gradient(
-                    circle at 50% 30%,
-                    #28738a,
-                    #121b3b 50%,
-                    #080d1c 85%
-                );
-        }
-
-        .hero-content {
-            max-width: 950px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 9px 18px;
-            border: 1px solid #ffd43b;
-            border-radius: 30px;
-            color: #ffd43b;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: 75px;
-            line-height: 1;
-            font-weight: 900;
-            color: #ffd43b;
-            text-shadow: 4px 5px 0 #222;
-            margin-bottom: 20px;
-        }
-
-        .hero h2 {
-            font-size: 30px;
-            color: #55d9ff;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            max-width: 750px;
-            margin: auto;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #d9d9d9;
-        }
-
-        .hero-buttons {
-            margin-top: 35px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 7px;
-            border-radius: 30px;
-            background: #ffd43b;
-            color: #111;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 17px;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid #ffd43b;
-        }
-
-        /* SECTION */
-        .section {
-            padding: 80px 7%;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            color: #aaa;
-            margin-bottom: 45px;
-            font-size: 17px;
-        }
-
-        /* FEATURES */
-        .features {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .feature {
-            background: #121a35;
-            border: 1px solid #29365e;
-            border-radius: 18px;
-            padding: 32px 20px;
-            transition: 0.3s;
-        }
-
-        .feature:hover {
-            transform: translateY(-7px);
-            border-color: #ffd43b;
-        }
-
-        .feature-icon {
-            font-size: 45px;
-            margin-bottom: 18px;
-        }
-
-        .feature h3 {
-            color: #ffd43b;
-            margin-bottom: 12px;
-            font-size: 21px;
-        }
-
-        .feature p {
-            color: #bbb;
-            line-height: 1.6;
-        }
-
-        /* GAME SECTION */
-        .game-box {
-            max-width: 1100px;
-            margin: auto;
-            background: linear-gradient(135deg, #151f42, #0e142c);
-            border: 1px solid #2c3965;
-            border-radius: 25px;
-            padding: 55px 30px;
-        }
-
-        .game-box h2 {
-            font-size: 40px;
-            color: #ffd43b;
-            margin-bottom: 20px;
-        }
-
-        .game-box p {
-            max-width: 750px;
-            margin: auto;
-            color: #ccc;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-        /* STATS */
-        .stats {
-            max-width: 900px;
-            margin: 45px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .stat {
-            background: #0d142b;
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #27345a;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 30px;
-            color: #55d9ff;
-            margin-bottom: 8px;
-        }
-
-        .stat span {
-            color: #aaa;
-        }
-
-        /* ABOUT */
-        .about {
-            max-width: 850px;
-            margin: auto;
-            color: #ccc;
-            font-size: 17px;
-            line-height: 1.9;
-        }
-
-        /* CONTACT */
-        .contact-box {
-            max-width: 700px;
-            margin: auto;
-            background: #121a35;
-            padding: 40px 25px;
-            border-radius: 20px;
-            border: 1px solid #29365e;
-        }
-
-        .contact-box p {
-            color: #bbb;
-            line-height: 1.7;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #050914;
-            padding: 40px 7%;
-            text-align: center;
-            border-top: 1px solid #202a49;
-        }
-
-        footer h3 {
-            color: #ffd43b;
-            margin-bottom: 12px;
-        }
-
-        footer p {
-            color: #888;
-            margin: 7px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 850px) {
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .hero h1 {
-                font-size: 52px;
-            }
-
-            .features {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 550px) {
-
-            .hero {
-                min-height: 600px;
-                padding: 60px 5%;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h2 {
-                font-size: 23px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 60px 5%;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header>
+<!-- NAVIGATION -->
+<header>
+<nav>
 
-        <div class="logo">
-            🎮 Gaming World
-        </div>
+<div class="logo">🎮 GAMING WORLD</div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#game">Game</a>
-            <a href="#features">Features</a>
-            <a href="#about">About</a>
-        </nav>
+<div class="menu">
+<a href="#home">HOME</a>
+<a href="#games">GAME</a>
+<a href="#download">DOWNLOAD</a>
+<a href="#about">ABOUT</a>
+<a href="#contact">CONTACT</a>
+</div>
 
-    </header>
+</nav>
+</header>
 
 
-    <!-- HERO -->
-    <section class="hero" id="home">
+<!-- HERO -->
+<section id="home" class="hero">
 
-        <div class="hero-content">
+<div class="hero-content">
 
-            <div class="badge">
-                🎮 UPCOMING MOBILE GAME
-            </div>
+<p class="welcome">WELCOME TO MY GAMING WORLD</p>
 
-            <h1>
-                RUNNER<br>ADVENTURE
-            </h1>
+<h1>
+RUNNER
+<span>ADVENTURE</span>
+</h1>
 
-            <h2>
-                RUN • JUMP • SURVIVE
-            </h2>
+<p class="description">
+Run through an exciting 3D world, avoid obstacles,
+collect coins and become the ultimate runner.
+</p>
 
-            <p>
-                Get ready for an epic endless runner adventure.
-                Run through dangerous temple paths, avoid obstacles,
-                collect coins and challenge your highest score.
-            </p>
+<div class="buttons">
 
-            <div class="hero-buttons">
-                <a href="#game" class="btn">
-                    EXPLORE GAME
-                </a>
+<a href="#games" class="button">
+🎮 EXPLORE GAME
+</a>
 
-                <a href="#features" class="btn btn-outline">
-                    GAME FEATURES
-                </a>
-            </div>
+<a href="#download" class="button outline">
+📥 DOWNLOAD
+</a>
 
-        </div>
+</div>
 
-    </section>
+</div>
 
+</section>
 
-    <!-- GAME -->
-    <section class="section" id="game">
 
-        <div class="game-box">
+<!-- GAME -->
+<section id="games" class="section">
 
-            <h2>
-                🏃 Runner Adventure
-            </h2>
+<p class="small-title">OUR FEATURED GAME</p>
 
-            <p>
-                Runner Adventure is an exciting 3D endless-runner
-                game project. Race through ancient temples,
-                collect valuable coins, avoid dangerous obstacles
-                and keep running as long as possible.
-            </p>
+<h2>RUNNER ADVENTURE</h2>
 
-            <div class="stats">
 
-                <div class="stat">
-                    <strong>3D</strong>
-                    <span>Adventure</span>
-                </div>
+<div class="game-card">
 
-                <div class="stat">
-                    <strong>∞</strong>
-                    <span>Endless Run</span>
-                </div>
+<!-- GAME POSTER -->
+<div class="game-image">
 
-                <div class="stat">
-                    <strong>🏆</strong>
-                    <span>High Score</span>
-                </div>
+<img
+src="images/runner-adventure.png"
+alt="Runner Adventure Game Poster"
+>
 
-            </div>
+</div>
 
-        </div>
 
-    </section>
+<!-- GAME INFORMATION -->
+<div class="game-details">
 
+<p class="small-title">3D MOBILE GAME</p>
 
-    <!-- FEATURES -->
-    <section class="section" id="features">
+<h3>Runner Adventure</h3>
 
-        <h2 class="section-title">
-            Game Features
-        </h2>
+<p>
+Get ready for an exciting endless running adventure.
+Run through dangerous paths, jump over obstacles,
+collect coins and try to achieve the highest score.
+</p>
 
-        <p class="section-subtitle">
-            Everything we are building for the ultimate runner experience.
-        </p>
 
-        <div class="features">
+<div class="features">
 
-            <div class="feature">
+<div>🎮 3D GAME</div>
 
-                <div class="feature-icon">
-                    🎮
-                </div>
+<div>📱 MOBILE</div>
 
-                <h3>
-                    3D Graphics
-                </h3>
+<div>🏆 HIGH SCORE</div>
 
-                <p>
-                    Explore a colorful 3D adventure world
-                    filled with temples, paths and exciting environments.
-                </p>
+<div>⚡ FAST ACTION</div>
 
-            </div>
+<div>🪙 COINS</div>
 
+<div>🔥 CHALLENGES</div>
 
-            <div class="feature">
+</div>
 
-                <div class="feature-icon">
-                    📱
-                </div>
 
-                <h3>
-                    Mobile Gaming
-                </h3>
+<a href="#download" class="button">
+GET THE GAME
+</a>
 
-                <p>
-                    Designed for an enjoyable mobile gaming
-                    experience with simple controls.
-                </p>
+</div>
 
-            </div>
+</div>
 
+</section>
 
-            <div class="feature">
 
-                <div class="feature-icon">
-                    🪙
-                </div>
+<!-- FEATURES -->
+<section class="features-section">
 
-                <h3>
-                    Collect Coins
-                </h3>
+<p class="small-title">GAME FEATURES</p>
 
-                <p>
-                    Collect coins while running and try to
-                    achieve the highest possible score.
-                </p>
+<h2>WHAT'S INSIDE?</h2>
 
-            </div>
 
+<div class="feature-grid">
 
-            <div class="feature">
+<div class="feature-box">
 
-                <div class="feature-icon">
-                    ⚡
-                </div>
+<div class="feature-icon">🏃</div>
 
-                <h3>
-                    Fast Action
-                </h3>
+<h3>RUN</h3>
 
-                <p>
-                    React quickly, jump over obstacles and
-                    keep running as the challenge increases.
-                </p>
+<p>
+Run through exciting and challenging environments.
+</p>
 
-            </div>
+</div>
 
-        </div>
 
-    </section>
+<div class="feature-box">
 
+<div class="feature-icon">🪙</div>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
+<h3>COLLECT</h3>
 
-        <h2 class="section-title">
-            About Us
-        </h2>
+<p>
+Collect coins and rewards during your adventure.
+</p>
 
-        <div class="about">
+</div>
 
-            <p>
-                Welcome to Gaming World. We are working on
-                exciting games designed to bring adventure
-                and entertainment to mobile players.
-            </p>
 
-            <br>
+<div class="feature-box">
 
-            <p>
-                Our first major project is Runner Adventure,
-                an endless-runner game inspired by adventurous
-                temple environments, challenging obstacles
-                and fast-paced gameplay.
-            </p>
+<div class="feature-icon">⚔️</div>
 
-        </div>
+<h3>SURVIVE</h3>
 
-    </section>
+<p>
+Avoid obstacles and survive for as long as possible.
+</p>
 
+</div>
 
-    <!-- CONTACT -->
-    <section class="section">
 
-        <div class="contact-box">
+<div class="feature-box">
 
-            <h2>
-                🚀 Game Coming Soon
-            </h2>
+<div class="feature-icon">🏆</div>
 
-            <br>
+<h3>COMPETE</h3>
 
-            <p>
-                Stay connected with Gaming World for future
-                updates about Runner Adventure and our upcoming games.
-            </p>
+<p>
+Try to beat your highest score and become the best.
+</p>
 
-        </div>
+</div>
 
-    </section>
+</div>
 
+</section>
 
-    <!-- FOOTER -->
-    <footer>
 
-        <h3>
-            🎮 Gaming World
-        </h3>
+<!-- DOWNLOAD -->
+<section id="download" class="download-section">
 
-        <p>
-            Runner Adventure — Run • Jump • Survive
-        </p>
+<p class="small-title">GET THE GAME</p>
 
-        <p>
-            © 2026 Gaming World. All Rights Reserved.
-        </p>
+<h2>DOWNLOAD RUNNER ADVENTURE</h2>
 
-    </footer>
+<p>
+The Android version of Runner Adventure
+will be available soon.
+</p>
+
+<a href="#" class="button">
+📱 ANDROID DOWNLOAD
+</a>
+
+<p class="coming-soon">
+🚀 COMING SOON
+</p>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="section about">
+
+<p class="small-title">ABOUT THE PROJECT</p>
+
+<h2>CREATING MY OWN GAME</h2>
+
+<p>
+Gaming World is a project dedicated to creating
+exciting 3D mobile games. Runner Adventure is
+the first game project and will continue to receive
+new features, levels and improvements.
+</p>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+
+<p class="small-title">CONTACT</p>
+
+<h2>GET IN TOUCH</h2>
+
+<p>
+Stay connected for future game updates and releases.
+</p>
+
+<a
+href="mailto:your@email.com"
+class="button outline"
+>
+✉️ CONTACT ME
+</a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="logo">🎮 GAMING WORLD</div>
+
+<p>
+© 2026 Gaming World. All Rights Reserved.
+</p>
+
+<p>
+Runner Adventure — 3D Mobile Game
+</p>
+
+</footer>
+
 
 </body>
 </html>
